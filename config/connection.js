@@ -1,19 +1,19 @@
 // create the connection information for the sql database
 var connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-  
-    // Your username
+    host: "localhost",  
     user: "root",
-  
-    // Your password
     password: "iwtmbabp2018",
-    database: "burgers"
+    database: "burgers_db"
   });
   
   // connect to the mysql server and sql database
   connection.connect(function(err) {
-    if (err) throw err;
-    // run the start function after the connection is made to prompt the user
-    start();
-  });
+    if (err) {
+      console.error("error connection: " + err.stack);
+      return; 
+    }
+    console.log("connected as id " + connection.threadId);
+
+  }); 
+
+  module.exports = connection; 
