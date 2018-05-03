@@ -5,8 +5,6 @@ var PORT = process.env.PORT || 8000;
 
 var app = express();
 
-var mysql = require('mysql');
-
 // serve static content for the app from the public directory 
 app.use(express.static("public"));
 // parse (ie to encode / decode)
@@ -21,10 +19,10 @@ var hbs = require("express-handlebars");
 app.engine("handlebars", hbs({defaultLayout:"main"}));
 app.set("view engine", "handlebars");
 
-// var routes = require("./controllers/burgers_controller.js")
+var routes = require("./controllers/burgers_controller.js")
 
 app.use(routes);
 
-app.listen(port, function() {
+app.listen(PORT, function() {
     console.log("Server is listening on port " + PORT);
 });
