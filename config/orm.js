@@ -12,17 +12,17 @@ var orm = {
         });
     }, 
     // insert a new burger into db 
-insertOne: function(table, newBurger) {
-    var queryString = "INSERT INTO ?? VALUES ?"; 
-    connection.query(queryString, [table, newBurger], function(err, result){
+insertOne: function(table, col1, col2, val1, val2) {
+    var queryString = "INSERT INTO ?? (??, ??) VALUES (?,?)"; 
+    connection.query(queryString, [table, col1, col2, val1, val2], function(err, result){
         if (err) throw err; 
         console.log(result);
     });
 }, 
 // when burger devoured, update the db 
-updateOne: function(table, devoured, newVal, devoured){
-    var queryString = "UPDATE ?? SET ?? = ? WHERE ??";
-     connection.query(queryString, [], function(err, result) {
+updateOne: function(table, col1, val1, col2, val2){
+    var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+     connection.query(queryString, [table, col1, val1, col2, val2], function(err, result) {
          if (err) throw err; 
          console.log(result)
      })
