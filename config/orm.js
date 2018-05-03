@@ -25,8 +25,8 @@ updateOne: function(table, col1, val1, col2, val2){
      connection.query(queryString, [table, col1, val1, col2, val2], function(err, result) {
          if (err) throw err; 
          console.log(result)
-     })
+     });
 } 
-}
+};
 // export the ORM object in module.exports s
 module.exports = orm; 
