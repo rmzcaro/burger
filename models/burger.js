@@ -5,8 +5,8 @@ var orm = require("../config/orm.js");
 
 var burger = {
 // select all burgers
-seeAll: function(cb) {
-    orm.seeAll("burgers", function(res){
+all: function(cb) {
+    orm.all("burgers", function(res){
         cb(res);
     });
 },

@@ -5,7 +5,7 @@
 <ul>
     {{#each burgers}}
         {{#unless devoured}}
-            {{>burgers/burger-block devour=true}}
+            {{> burgers/burger-block devour=true}}
         {{/unless}}
     {{/each}}
 </ul>
@@ -20,6 +20,20 @@
   {{/each}}
 
 </ul>
-// add a burger 
 
-// add a button 
+<h2>Add a Burger</h2>
+<form class = "create-form">
+
+    <div class = "form-group">
+        <label for="burger01">Burger:</label>
+        <input type="text" id="burger01" name="name">
+    </div>
+
+    <div class = "form-group">
+        <label for="devoured">Devoured:</label>
+    </div>
+
+    <button type="submit">Add a Burger</button>
+
+</form>
+

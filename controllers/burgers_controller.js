@@ -1,14 +1,14 @@
 var express = require("express");
-var burger = require("../models/burger.js")
+
 //create router as a module 
 var router = express.Router();
 
-
+var burger = require("../models/burger.js")
 // create routes
 
 // get the burger
 router.get("/", function (req, res) {
-    burger.seeAll(function (data) {
+    burger.all(function(data) {
         var hbsObj = {
             burgers: data
         };
@@ -16,14 +16,17 @@ router.get("/", function (req, res) {
         res.render("index", hbsObj)
     });
 });
-// ad a burger
-router.post("/api/cats", function (req, res) {
+// add a burger
+// CONFUSED: WHY /API/BURGERS???
+router.post("/api/burgers", function (req, res) {
     //add a burger name and whether its devoured
-    burger.create(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function (result) {
+    burger.create([
+        "burger_name", "devoured"
+    ], [
+        req.body.burger_name, req.body.devoured],
+        function (result) {
         // send back the id of the new burger
-        res.json({
-            id: result.insertId
-        });
+        res.json({id: result.insertId});
     });
 });
 
@@ -39,7 +42,10 @@ router.put("/api/burgers/:id", function (req, res) {
             // if now rows were changed then id must not exist so 404
             return res.status(404).end();
         } else {
+            // CONFUSED: WHY WOULD I END AFTER SENDING STATUS CODE??
+            // res.send(200, result);
             res.status(200).end();
+
         }
     });
 });
