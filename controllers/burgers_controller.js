@@ -62,20 +62,20 @@ router.post("/api/burgers/", function (req, res) {
 //     });
 // });
 
-// // remove burger
-// router.delete("/api/burgers/:id", function (req, res) {
-//     var condition = "id = " + req.params.id;
+// remove burger
+router.delete("/api/burgers/:id", function (req, res) {
+    var condition = "id = " + req.params.id;
 
-//     burger.delete(condition, function (req, res) {
-//         if (result.affectedRows == 0) {
-//             // if no rows changed, then error
-//             return res.status(404).end();
+    burger.delete(condition, function (result) {
+        if (result.affectedRows == 0) {
+            // if no rows changed, then error
+            return res.status(404).end();
 
-//         } else {
-//             res.status(200).end();
-//         }
-//     });
-// });
+        } else {
+            res.status(200).end();
+        }
+    });
+});
 
 // export
 module.exports = router;
