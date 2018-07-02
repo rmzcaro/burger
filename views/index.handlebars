@@ -11,15 +11,23 @@
 </ul>
 
 <h2>Burgers Devoured!</h2>
-
 <ul>
+{{#each burger}}
+    {{#if this.devoured}}
+    <li> {{this.burger_name}}
+</li>
+    {{/if}}
+{{/each}}
+</ul>
+
+{{!-- <ul>
  {{#each burger}}
     {{#if devoured}}
       {{> burgers/burger-block devoured=false}}
     {{/if}}
   {{/each}}
 
-</ul>
+</ul> --}}
 
 <h2>Add a Burger</h2>
 <form class = "create-form">
