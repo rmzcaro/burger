@@ -34,49 +34,37 @@ router.post("/api/burgers/", function (req, res) {
     burger.insertOne( newBurger, function(result) {
         res.json( { id: result.insertId} );
     })
-
-
-    // attempt 2
-    // var newBurger = req.body.burger_name.toString();
-    // console.log(newBurger + "in controller");
-
    console.log("sending burger to view")
 
 });
-// remove burger
-router.delete("/api/burgers/:id", function (req, res) {
-    var condition = "id = " + req.params.id;
 
-    burger.delete(condition, function (result) {
-        if (result.affectedRows == 0) {
-            // if no rows changed, then error
-            return res.status(404).end();
+router.put("/api/burgers/update/:id", function (req, res) {
+    var condition = req.params.id;
+    console.log("condition", condition);
 
-        } else {
-            res.status(200).end();
-        }
+    //change if burger devoured or not 
+    burger.updateOne( condition, function(result) {
+       res.json(result);
     });
 });
 
 // export
 module.exports = router;
 
-// router.put("/api/burgers/:id", function (req, res) {
+
+
+
+// remove burger
+// router.delete("/api/burgers/:id", function (req, res) {
 //     var condition = "id = " + req.params.id;
-//     console.log("condition", condition);
 
-//     //change if burger devoured or not 
-//     burger.update({
-//         devoured: req.body.devoured
-//     }, condition, function (result) {
-//         if (result.changedRows == 0) {
-//             // if now rows were changed then id must not exist so 404
+//     burger.delete(condition, function (result) {
+//         if (result.affectedRows == 0) {
+//             // if no rows changed, then error
 //             return res.status(404).end();
-//         } else {
-//             // CONFUSED: WHY WOULD I END AFTER SENDING STATUS CODE??
-//             // res.send(200, result);
-//             res.status(200).end();
 
+//         } else {
+//             res.status(200).end();
 //         }
 //     });
 // });

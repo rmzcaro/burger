@@ -16,29 +16,27 @@ $.post("/api/burgers", newBurger, function(data){
     }
 })
 });
-});
+
         
 
-// $(".change-devour").on("click", function(event) {
-    //     // var id = $(this).data("id");
-    //     // var newDevour = $(this).data("")
-    //     console.log("changed to devour!");
-    // });
+$(".change-devour").on("click", function(event) {
+        var id = $(this).data("id");
+        // console.log("changed to devour!");
 
-    // delete
-    // $(".delete-burger").on("click", function (event) {
-    //     var id = $(this).data("id");
+        var newDevour = {
+            devoured: true
+        };
 
-    //     $.ajax("/api/burgers/" + id, {
-    //         type: "DELETE"
-    //     }).then(
-    //         function () {
-    //             console.log("hi deleting burger", id);
-    //             location.reload();
+        $.ajax("/api/burgers/update/" + id, {
+            type: "PUT",
+            data: newDevour,
+        }).then(
+            function (data) {
+                console.log("YUMMM Eating Burger # ", id);
+                location.reload();
 
-    //         }
-    //     );
-    // });
+            }
+        );
 
-
-    
+    });
+    });

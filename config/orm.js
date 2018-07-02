@@ -51,32 +51,16 @@ var orm = {
             if (err) throw (err);
             cb(result)
         });
-    }
-
-    //old version
-    // insert a new burger into db 
-// insertOne: function(table, col1, col2, val1, val2) {
-//     var queryString = "INSERT INTO ??(??, ??) VALUES (?, ?)"; 
-//     connection.query(queryString, [table, col1, col2, val1, val2], function(err, result){
-//         if (err) {
-//             console.log("error creating new burger")
-//             throw err; 
-//         }
-//         console.log(queryString + " is query of creating burger");
-//         cb(result);
-//     });
-// }, 
-// // when burger devoured, update the db 
-// update: function(table, col1, val1, col2, val2){
-//     var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
-//      connection.query(queryString, [table, col1, val1, col2, val2], function(err, result) {
-//         if (err) {
-//             throw err; 
-//         }
-//         console.log(result);
-//         cb(result);
-//      });
-// },
+     },
+// when burger devoured, update the db 
+updateOne: function(burgerId, cb){
+    var queryString = "UPDATE burgers SET devoured = true WHERE ?";
+     connection.query(queryString, { id:burgerId }, function(err, result) {
+        if (err) 
+            throw (err); 
+        cb(result);
+     });
+}
 
 // test
 // delete: function(table,condition, cb){
@@ -93,17 +77,6 @@ var orm = {
 //      });
 // }
 
-
-// ORIGINAL  below 
-// delete: function(table, col1, val1, col2, val2){
-//     var queryString = "DELETE ?? SET ?? = ? WHERE ?? = ?";
-//      connection.query(queryString, [table, col1, val1, col2, val2], function(err, result) {
-//          if (err) {
-//          throw err; 
-//         }
-//         cb(result);
-//      });
-// } 
 };
 // export the ORM object in module.exports s
 module.exports = orm;

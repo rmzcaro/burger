@@ -20,22 +20,13 @@ var burger = {
         // console.log(res + "burgers from models");
 
     },
-
-// old version 
-    //create a burger
-    // insertOne: function (table, col1, col2, val1, val2, cb) {
-    //     orm.insertOne("burgers", "burger_name", "devoured", burger_name, false, function (err, res) {
-    //         console.log(res + "burgers from models");
-    //         cb(res);
-    //     })
-    // }
     
     // update a burger
-    update: function(colVal, condition, cb) {
-        orm.update("burgers", colVal, condition, function(res) {
+    updateOne: function(condition, cb) {
+        orm.updateOne(condition, function(res) {
             cb(res);
         });
-    }, 
+    }
 
     //delete a burger
     // delete: function (condition, cb) {
