@@ -1,6 +1,9 @@
-<h1>Burgers!</h1>
+<h1>Yummy Burgers!</h1>
+
 
 <h2>Eat-da-burgers!</h2>
+
+<div class = "col-sm-6">
 
 <ul>
     {{#each burgers}}
@@ -10,6 +13,9 @@
     {{/each}}
 </ul>
 
+</div>
+
+<div class = "col-sm-6">
 <h2>Burgers Devoured!</h2>
 <ul>
 {{#each burgers}}
@@ -19,17 +25,19 @@
     {{/if}}
 {{/each}}
 </ul>
-
+</div>
 
 <h2>Add a Burger</h2>
 <form class = "create-form">
 
     <div class = "form-group">
-        <label for="burger01">Burger:</label>
+        <label for="burger01">Burger Name:</label>
         <input type="text" id="burger01" name="burger_name">
         <button type="submit" class= "add-burger">Add a Burger</button>
 
     </div>
+
+    <p><div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div></p>
 
 
 </form>
