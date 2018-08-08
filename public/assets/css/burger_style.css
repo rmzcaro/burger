@@ -1,7 +1,21 @@
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+h1 {
+text-align: center; 
+background-color: #f4c242;
+
+}
+
 li {
     padding: 5px;
     margin: 5px; 
    }
+   
   
   .label {
     font-weight: bold;
@@ -9,7 +23,13 @@ li {
   
   .form-group {
     margin-bottom: 5px;
+    background-color: #f4c242;
+
   }
 
+  #footer {
+    text-align: center;
+    background-color:#D3D3D3;
+  }
   
   
