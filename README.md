@@ -1,4 +1,4 @@
-# burge
+# burger eater
 
 This project 
 - user can add burgers into the database
