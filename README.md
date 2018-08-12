@@ -1,6 +1,6 @@
 # burger eater
 
-This project 
+Overview  
 - user can add burgers into the database
 - when user clicks the button "devour" and the burger will be moved to the devoured section
 - all added and devoured burgers are listed
