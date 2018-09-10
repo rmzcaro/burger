@@ -5,10 +5,10 @@ img {
   margin-top: 10px;
 }
 
-h1 {
+h1, .create-form{
 text-align: center; 
 background-color: #f4c242;
-
+margin-bottom: 0px;
 }
 
 li {
